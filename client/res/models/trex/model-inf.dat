@@ -1,0 +1,13 @@
+salespitch=
+textures=man-tex.png rex-tex.png 
+rigged-models=trex 
+name=T-Rex
+license=CCA 2.0
+other-files=trex-run-baked.mb trex-eat-baked.mb trex-eat.mb trex-run.mb 
+id=trex
+date=2004-12-13
+keywords=Animal
+animations=trex-eat trex-run 
+modeler=Fangwei Lee
+painter=Shao Jie
+animator=Fangwei Lee

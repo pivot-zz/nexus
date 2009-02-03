@@ -1,0 +1,13 @@
+There are two totally independent modules, the Nexus client and server. Both are written in the Python programming language (http://www.python.org). The server does require the Stackless Python variant; you may find that using Stackless for both client and server is most convenient. Installation details involving Panda3D and Stackless may vary among systems.
+
+Client:
+
+You will need a recent version of Panda3D (http://www.panda3d.org), 1.5.0 or greater. This in turn requires 3D graphics support on your machine. 
+
+Run client/src/NexusClient.py with Python 2.4+ and it should run as long as Panda3D's Python libraries are installed.
+
+Server:
+
+The server is written in a special Python fork, Stackless Python (http://www.stackless.com).
+
+Run server/src/NexusServer.py with a Stackless Python installation equivalent to Python 2.5+. 

@@ -1,0 +1,13 @@
+salespitch=
+textures=ralph.png 
+rigged-models=ralph 
+name=Ralph
+license=CCA 2.0
+other-files=ralph.mb 
+id=ralph
+date=2004-12-12
+keywords=Human
+animations=ralph-walk ralph-offbalance ralph-jump ralph-run 
+modeler=Shaun Budhram
+painter=Will Houng
+animator=Shaun Budhram

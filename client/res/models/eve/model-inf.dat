@@ -1,0 +1,14 @@
+salespitch=
+textures=tire.png eve.png eveface.png 
+rigged-models=eve 
+name=Eve
+license=CCA 2.0
+other-files=eve.mb eve-tireroll.mb 
+id=eve
+date=2004-12-12
+animated-models=eve-tireroll 
+keywords=Human
+animations=eve-jump eve-run eve-walk eve-offbalance 
+modeler=Will Houng
+painter=Will Houng
+animator=Shaun Budhram
