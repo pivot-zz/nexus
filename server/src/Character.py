@@ -15,3 +15,4 @@ class PlayerCharacter(Character):
             message = networkChannel.receive()
 
             print "PlayerChar received packet: %s" % message
+            

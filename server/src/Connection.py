@@ -1,6 +1,8 @@
 import stackless
 import socket
 
+import Packets
+
 class Connection:
     def __init__(self, clientsocket, address, control):
         # Create a manager channel which can inform us
@@ -47,14 +49,14 @@ class Connection:
                     print "Command: %s, Username: %s, Password: %s" % (command, username, password)
                     
                     payload = (username, password, self.manager)
-                    self.control.send(("LOGIN", payload))
+                    self.control.send((Packets.CONTROL_LOGIN, payload))
                     
                 elif data.startswith('register') & data.endswith('\r\n'):
                     command, username, password, email = data.rstrip('\r\n').split(' ')
                     print "Command: %s, Username: %s, Password: %s, Email: %s" % (command, username, password, email)
                     
                     payload = (username, password, email)
-                    self.control.send(("REGISTER", payload))
+                    self.control.send((Packets.CONTROL_REGISTER, payload))
                     
                 elif self.character:
                     # Pass the message onto the PlayerCharacter
@@ -74,13 +76,13 @@ class Connection:
         
         # If we are logged in, do some cleanup
         if (self.character):
-            self.control.send(("DISCONNECT", self.username))
+            self.control.send((Packets.CONTROL_DISCONNECT, self.username))
         
     def handleManagementMessage(self, manager):
         while 1:
             message, payload = manager.receive()
             
-            if (message == "LOGGEDIN"):
+            if (message == Packets.MANAGER_LOGGEDIN):
                 # Payload is character control channel
                 self.username, self.character = payload
                 

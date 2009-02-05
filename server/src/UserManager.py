@@ -2,6 +2,8 @@ import stackless
 
 import Character
 
+import Packets
+
 class UserManager(object):
     def __init__(self, control):
         # FIXME: registered user DB
@@ -18,7 +20,7 @@ class UserManager(object):
             # Message and payload
             message, payload = control.receive()
         
-            if (message == "LOGIN"):
+            if (message == Packets.CONTROL_LOGIN):
                 # payload is username and password
                 # manager is used to send back the login result
                 username, password, manager = payload
@@ -41,7 +43,7 @@ class UserManager(object):
                         
                         # Give the Connection access to the network channel
                         # so it can pass on packets to the PlayerCharacter.
-                        manager.send(("LOGGEDIN", (username, characterChannel)))
+                        manager.send((Packets.MANAGER_LOGGEDIN, (username, characterChannel)))
                         
                         print "Logged in"
                     else:
@@ -49,13 +51,13 @@ class UserManager(object):
                 else:
                     print "Failed existence check"
                     
-            elif (message == "REGISTER"):
+            elif (message == Packets.CONTROL_REGISTER):
                 # payload is triple of registration data
                 username, password, email = payload
                 self.userDB[username] = Character.PlayerCharacter(username, password, email, 0)
                 print "Registered"
             
-            elif (message == "DISCONNECT"):
+            elif (message == Packets.CONTROL_DISCONNECT):
                 # Payload is username of the disconnected
                 # Just delete them from the logged in list
                 self.users[payload] = None
