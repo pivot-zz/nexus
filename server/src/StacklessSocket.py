@@ -286,7 +286,7 @@ class _fakesocket(asyncore.dispatcher):
         if self.socket.type == SOCK_STREAM:
             return self.recv(byteCount), None
 
-        # recvfrom() must not concatenate two or more packets.
+        # recvfrom() must not concatenate two or more Messages.
         # Each call should return the first 'byteCount' part of the packet.
         data, address = self.recvChannel.receive()
         return data[:byteCount], address
